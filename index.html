@@ -57,6 +57,46 @@ const host=u.hostname.toLowerCase().replace(/^www\./,'');
 if(host==='tiktok.com'||host.endsWith('.tiktok.com')){notice.textContent='Link format looks like a TikTok URL. This starter version does not download the video yet; a permitted backend must be connected next.'}
 else{notice.textContent='This does not look like a TikTok URL. Please paste a link from tiktok.com.'}
 notice.classList.add('show')});
+
+<script>
+const form = document.getElementById('form');
+const input = document.getElementById('url');
+const notice = document.getElementById('notice');
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
+
+  let u;
+  try {
+    u = new URL(input.value.trim());
+  } catch {
+    notice.textContent = 'Please enter a valid URL.';
+    notice.classList.add('show');
+    return;
+  }
+
+  const host = u.hostname.toLowerCase().replace(/^www\./, '');
+
+  notice.replaceChildren();
+
+  if (host === 'tiktok.com' || host.endsWith('.tiktok.com')) {
+    notice.append('TikTok link detected. Open the video on TikTok to check whether downloading is allowed. ');
+
+    const link = document.createElement('a');
+    link.href = u.href;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.textContent = 'Open TikTok video';
+    link.style.color = '#25f4ee';
+
+    notice.appendChild(link);
+  } else {
+    notice.textContent = 'This does not look like a TikTok URL. Please paste a link from tiktok.com.';
+  }
+
+  notice.classList.add('show');
+});
 </script>
+
 </body>
 </html>
