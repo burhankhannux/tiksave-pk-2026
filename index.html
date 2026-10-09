@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ur">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101014">
+<title>TikSave — TikTok Video Downloader</title>
+<style>
+:root{--bg:#0e0f13;--panel:#171920;--muted:#a7adba;--white:#f7f8fb;--cyan:#25f4ee;--pink:#fe2c55;--line:#2a2d36}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% 0%,#24202c 0%,var(--bg) 55%);color:var(--white);font-family:Arial,"Noto Sans",sans-serif}
+a{color:inherit;text-decoration:none}.wrap{width:min(1100px,92%);margin:auto}
+header{border-bottom:1px solid #ffffff12;background:#0d0e12cc;position:sticky;top:0;backdrop-filter:blur(12px);z-index:3}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:17px 0;gap:16px}.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:21px;letter-spacing:-.5px}.logo{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--cyan),var(--pink));display:grid;place-items:center;color:#111;font-size:22px;font-weight:900;box-shadow:3px 3px 0 #fff3}.brand span span{color:var(--cyan)}nav{display:flex;gap:23px;color:#c7cbd4;font-size:14px}
+.hero{text-align:center;padding:70px 0 48px}.pill{display:inline-flex;gap:8px;align-items:center;border:1px solid #ffffff1c;border-radius:999px;padding:8px 13px;color:#d9dde6;font-size:12px;background:#ffffff08}.dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
+h1{font-size:clamp(36px,7vw,68px);line-height:1.08;letter-spacing:-2px;margin:23px auto 16px;max-width:850px}h1 em{font-style:normal;background:linear-gradient(90deg,var(--cyan),#fff,var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--muted);font-size:17px;line-height:1.7;max-width:650px;margin:0 auto}
+.downloader{max-width:760px;margin:32px auto 16px;padding:9px;display:flex;gap:9px;background:#fff;border-radius:17px;box-shadow:0 0 0 1px #ffffff22,0 18px 60px #0007}
+.downloader input{flex:1;min-width:0;border:0;outline:0;padding:15px 14px;font-size:15px;color:#1a1b20;background:transparent}.downloader button{border:0;border-radius:12px;padding:0 23px;background:linear-gradient(110deg,var(--pink),#ff476c);color:#fff;font-weight:800;font-size:15px;cursor:pointer}
+.note{font-size:12px;color:#8f96a5;line-height:1.6}.notice{display:none;max-width:760px;margin:15px auto;padding:13px 16px;border:1px solid #ffffff20;border-radius:12px;background:#ffffff09;color:#e8eaf0;text-align:left;line-height:1.5;font-size:14px}.notice.show{display:block}
+.trust{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:24px;color:#b5bbc7;font-size:13px}.trust span:before{content:"✓";color:var(--cyan);font-weight:bold;margin-right:7px}
+section{padding:42px 0}.section-title{text-align:center;font-size:30px;letter-spacing:-.7px;margin:0 0 10px}.section-sub{text-align:center;color:var(--muted);margin:0 auto 28px;line-height:1.6}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{padding:23px;border-radius:18px;background:linear-gradient(145deg,#1a1d25,#14161c);border:1px solid var(--line)}.ico{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:#25f4ee18;color:var(--cyan);font-size:22px;margin-bottom:17px}.card h3{margin:0 0 9px;font-size:17px}.card p{margin:0;color:var(--muted);font-size:14px;line-height:1.65}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.step{border:1px solid var(--line);border-radius:16px;padding:20px;background:#ffffff04}.num{font-size:13px;color:var(--pink);font-weight:800;margin-bottom:12px}.step h3{font-size:16px;margin:0 0 8px}.step p{font-size:14px;color:var(--muted);line-height:1.6;margin:0}
+footer{border-top:1px solid var(--line);padding:25px 0;color:#8e95a3;font-size:12px}.foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+@media(max-width:700px){nav{display:none}.hero{padding:48px 0 34px}h1{letter-spacing:-1.2px}.sub{font-size:15px}.downloader{flex-direction:column;background:transparent;box-shadow:none;padding:0}.downloader input{background:#fff;border-radius:12px;padding:17px}.downloader button{min-height:52px}.cards,.steps{grid-template-columns:1fr}.section-title{font-size:26px}.trust{gap:12px}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav"><a class="brand" href="#"><span class="logo">↓</span><span>Tik<span>Save</span></span></a><nav><a href="#how">How it works</a><a href="#features">Features</a><a href="#safe">Safe use</a></nav></div></header>
+<main>
+<div class="wrap hero">
+<div class="pill"><span class="dot"></span> SIMPLE · MOBILE FRIENDLY · FREE TO TRY</div>
+<h1>Save TikTok videos.<br><em>Keep your favorites close.</em></h1>
+<p class="sub">A clean, simple TikTok video tool concept. Paste a link below to get started — download processing is not connected in this first design version.</p>
+<form class="downloader" id="form"><input id="url" type="url" placeholder="Paste a TikTok video link here…" aria-label="TikTok video URL" required><button type="submit">Check link&nbsp; →</button></form>
+<div class="notice" id="notice" role="status"></div>
+<p class="note">Use only videos you own or have permission to save. This demo checks the link format only; it does not fetch or download video files.</p>
+<div class="trust"><span>No sign-up in this demo</span><span>Works on mobile</span><span>Privacy-minded design</span></div>
+</div>
+<section id="features"><div class="wrap"><h2 class="section-title">Built for a smoother experience</h2><p class="section-sub">A professional starting point for a focused video utility.</p><div class="cards">
+<div class="card"><div class="ico">↯</div><h3>Simple workflow</h3><p>Paste a video link and receive clear feedback without a cluttered interface.</p></div>
+<div class="card"><div class="ico">▣</div><h3>Mobile-first layout</h3><p>Large touch-friendly controls and responsive cards for phones and tablets.</p></div>
+<div class="card"><div class="ico">♡</div><h3>Respectful use</h3><p>Designed around content you own or are authorized to download.</p></div>
+</div></div></section>
+<section id="how" style="background:#ffffff04;border-top:1px solid #ffffff08;border-bottom:1px solid #ffffff08"><div class="wrap"><h2 class="section-title">How it works</h2><p class="section-sub">Three simple steps — in this first version, only link validation is active.</p><div class="steps">
+<div class="step"><div class="num">STEP 01</div><h3>Copy a video link</h3><p>Open TikTok and copy the link for a video you have permission to save.</p></div>
+<div class="step"><div class="num">STEP 02</div><h3>Paste it here</h3><p>Paste the link into the field above and choose “Check link”.</p></div>
+<div class="step"><div class="num">STEP 03</div><h3>Connect a permitted downloader</h3><p>A real download option needs a compatible, policy-compliant backend. It is not connected yet.</p></div>
+</div></div></section>
+<section id="safe"><div class="wrap"><h2 class="section-title">A note about downloads</h2><p class="section-sub" style="max-width:720px">TikTok availability and download permissions vary by video and platform rules. A production version should use authorized methods, protect user privacy, and never ask for TikTok passwords or session cookies.</p></div></section>
+</main>
+<footer><div class="wrap foot"><strong style="color:#f4f5f8">Tik<span style="color:var(--cyan)">Save</span></strong><span>Starter design · Downloader backend not connected</span><span>© 2026 TikSave</span></div></footer>
+<script>
+const form=document.getElementById('form'), input=document.getElementById('url'), notice=document.getElementById('notice');
+form.addEventListener('submit',e=>{e.preventDefault();let u;try{u=new URL(input.value.trim())}catch{notice.textContent='Please enter a valid URL.';notice.classList.add('show');return}
+const host=u.hostname.toLowerCase().replace(/^www\./,'');
+if(host==='tiktok.com'||host.endsWith('.tiktok.com')){notice.textContent='Link format looks like a TikTok URL. This starter version does not download the video yet; a permitted backend must be connected next.'}
+else{notice.textContent='This does not look like a TikTok URL. Please paste a link from tiktok.com.'}
+notice.classList.add('show')});
+</script>
+</body>
+</html>
